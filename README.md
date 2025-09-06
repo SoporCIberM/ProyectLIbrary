@@ -115,4 +115,8 @@ npm start  # o npm run dev
 ***Actualiza tu rama local develop:***
 
 
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+
+
+
 
