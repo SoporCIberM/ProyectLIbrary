@@ -21,7 +21,7 @@ Es recomendable tener un entorno de desarrollo con soporte para Java y Node.js, 
 
 Las siguientes tecnologías han sido seleccionadas para el desarrollo del proyecto:
 
-- **Frontend**: React, Git, GitHub
+- **Frontend**: React, Next.Js,Git, GitHub
 - **Backend**: Spring Boot, Spring Security
 - **Base de Datos**: MySQL
 - **Gestión de Paquetes**: npm, Yarn, Bun
@@ -39,23 +39,29 @@ Primero, clona el repositorio del proyecto en tu máquina local:
 git clone https://github.com/soporCiber11M/ProyectLibrary.git
 cd ProyectLIbrary
 ```
+
 Instala las dependencias del frontend
 
 Accede al directorio del frontend e instala las dependencias necesarias:
+
 ```bash
 cd frontend # o la carpeta correspondiente
 npm install   # o yarn install
 ```
+
 nstala las dependencias del backend
 
 Accede al directorio del backend e instala las dependencias necesarias:
+
 ```bash
 cd backend  # o la carpeta correspondiente
 npm install   # o yarn install
 ```
+
 Configura las variables de entorno
 
 Crea un archivo .env en la raíz del directorio backend (y también en frontend si es necesario) y agrega las variables de configuración. Por ejemplo:
+
 ```bash
 DB_URI=mysql://usuario:contraseña@localhost:3306/biblioteca
 PORT=3000
@@ -65,58 +71,57 @@ Ejecuta la aplicación
 
 Inicia los servidores del frontend y backend en terminales separadas:
 
-*Backend:*
+_Backend:_
+
 ```bash
 cd backend
 npm start  # o npm run dev
 ```
 
-*Frontend:*
+_Frontend:_
+
 ```bash
 cd frontend
 npm start  # o npm run dev
 
 ```
+
 ---
+
 ## Roles de Usuario
 
 > El sistema cuenta con dos roles principales para gestionar diferentes niveles de acceso y permisos:
 
 ### Administrador
 
-***Gestión completa del catálogo de libros (añadir, editar, eliminar).***
+**_Gestión completa del catálogo de libros (añadir, editar, eliminar)._**
 
-***Gestión de usuarios y sus roles.***
+**_Gestión de usuarios y sus roles._**
 
-***Visualización de informes y estadísticas de préstamos.***
+**_Visualización de informes y estadísticas de préstamos._**
 
 ### Usuario
 
-***Búsqueda de libros en el catálogo.***
+**_Búsqueda de libros en el catálogo._**
 
-***Visualización de detalles de los libros.***
+**_Visualización de detalles de los libros._**
 
-***Funcionalidad para tomar prestados y devolver libros.***
+**_Funcionalidad para tomar prestados y devolver libros._**
 
-***Visualización de su historial de préstamos.***
+**_Visualización de su historial de préstamos._**
 
 ### Flujo de Trabajo con Git
 
-***Este proyecto utiliza un flujo de trabajo de ramificación basado en Git Flow, con las siguientes ramas principales:***
+**_Este proyecto utiliza un flujo de trabajo de ramificación basado en Git Flow, con las siguientes ramas principales:_**
 
-***main:*** Contiene el código listo para ser desplegado en producción.
+**_main:_** Contiene el código listo para ser desplegado en producción.
 
-***develop:*** Rama principal de desarrollo, donde se integran las nuevas funcionalidades.
+**_develop:_** Rama principal de desarrollo, donde se integran las nuevas funcionalidades.
 
-***feature/:*** Ramas específicas para el desarrollo de nuevas funcionalidades o correcciones de errores.
+**_feature/:_** Ramas específicas para el desarrollo de nuevas funcionalidades o correcciones de errores.
 
 ### Pasos a seguir para el desarrollo
 
-***Actualiza tu rama local develop:***
-
+**_Actualiza tu rama local develop:_**
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-
-
-
-
