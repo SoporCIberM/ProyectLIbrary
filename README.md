@@ -125,3 +125,77 @@ npm start  # o npm run dev
 **_Actualiza tu rama local develop:_**
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+
+
+## Trabajo Colaborativo
+
+### 👑 Líder del Proyecto: Darwin Joel
+
+Como líder del proyecto, mi rol ha abarcado la configuración inicial del repositorio, la gestión de la estructura de ramas y la implementación de políticas de protección para asegurar la integridad del código.
+
+#### 1. Creación del Repositorio
+
+El primer paso fue inicializar nuestro repositorio en GitHub para centralizar nuestro código.
+Aquí puedes ver la interfaz de creación del repositorio:
+`
+
+#### 2. Configuración de Ramas
+
+Establecí una estructura de ramas clara para facilitar el desarrollo en paralelo y la integración de características. Las ramas principales incluyen main (producción), feature (funciones), fix (errores), release (produccion) y ramas de características individuales.
+Aquí se muestra la estructura de ramas inicial:
+
+![Rama personal](./imgs/devjoel.png)
+![Rama feature](./imgs/feature.png)
+![Rama fix](./imgs/fix.png)
+![Rama release](./imgs/release.png)
+
+
+#### 3. Protección de Ramas
+
+Para garantizar la estabilidad de nuestras ramas main, feature, fix y release, implementé reglas de protección que requieren revisiones de código y pases de CI/CD antes de fusionar.
+Captura de pantalla de las reglas de protección de rama:
+`
+
+#### 4. Gestión del Flujo de Trabajo
+
+He supervisado los pull requests, la resolución de conflictos y he garantizado que nuestro proceso de integración continua se mantenga fluido.
+
+### 👨‍💻 Colaborador 1: Chistofer
+
+Chistofer se ha encargado de crear las entidades y asi mismo generar la base de datos que usaremos a lo largo de la creacion de nuestro aplicativo.
+
+Evidencia de Contribución:
+
+    
+    `
+
+👩‍💻 Colaborador 2: Anthony
+
+Anthony ha trabajado en [describe sus tareas y responsabilidades].
+
+Evidencia de Contribución:
+
+   
+    `
+
+🧑‍💻 Colaborador 3: Mariano
+
+Mariano ha contribuido con [describe sus tareas y responsabilidades].
+
+Evidencia de Contribución:
+
+    
+    `
+
+⚙️ Características
+
+    [Lista de características principales de la biblioteca online, por ejemplo:]
+
+        Búsqueda y filtrado de libros.
+
+        Gestión de perfiles de usuario.
+
+        Sistema de préstamos y devoluciones.
+
+        Panel de administración.
+
