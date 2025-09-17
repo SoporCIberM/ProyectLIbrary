@@ -58,7 +58,6 @@ cd backend  # o la carpeta correspondiente
 npm install   # o yarn install
 ```
 
-
 Ejecuta la aplicación
 
 Inicia los servidores del frontend y backend en terminales separadas:
@@ -118,7 +117,6 @@ npm start  # o npm run dev
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-
 ## Trabajo Colaborativo
 
 ### 👑 Líder del Proyecto: Darwin Joel
@@ -141,7 +139,6 @@ Aquí se muestra la estructura de ramas inicial:
 ![Rama fix](./imgs/fix.png)
 ![Rama release](./imgs/release.png)
 
-
 #### 3. Protección de Ramas
 
 Para garantizar la estabilidad de nuestras ramas main, feature, fix y release, implementé reglas de protección que requieren revisiones de código y pases de CI/CD antes de fusionar.
@@ -158,7 +155,6 @@ Chistofer se ha encargado de crear las entidades y asi mismo generar la base de 
 
 Evidencia de Contribución:
 
-    
     `
 
 👩‍💻 Colaborador 2: Anthony
@@ -167,7 +163,6 @@ Anthony ha trabajado en [describe sus tareas y responsabilidades].
 
 Evidencia de Contribución:
 
-   
     `
 
 🧑‍💻 Colaborador 3: Mariano
@@ -176,12 +171,11 @@ Mariano ha contribuido con [describe sus tareas y responsabilidades].
 
 Evidencia de Contribución:
 
-    
     `
 
 ⚙️ Características
 
-    [Lista de características principales de la biblioteca online, por ejemplo:]
+    [Lista de características principales de la biblioteca online]
 
         Búsqueda y filtrado de libros.
 
@@ -190,4 +184,3 @@ Evidencia de Contribución:
         Sistema de préstamos y devoluciones.
 
         Panel de administración.
-
