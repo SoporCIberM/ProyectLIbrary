@@ -7,7 +7,7 @@ function App() {
     <>
    <h1>Welcome to days</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
