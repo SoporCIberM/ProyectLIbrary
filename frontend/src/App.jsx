@@ -5,7 +5,25 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(false); // Estado de carga
   const [view, setView] = useState(''); // Controla la vista de Login o Registro
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  // Función para manejar la carga y redirigir
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      if (view === 'login') {
+        alert('Buen trabajo, exitoso inicio de sección!!!!!');
+      } else {
+        alert('Registration estupendo!');
+      }
+    }, 2000); // Simulamos un retraso de 2 segundos
+  };
 
   // Funciones para mostrar Login o Registro
   const showLogin = () => setView('login');
@@ -34,45 +52,73 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
 
-      {/* Botones para cambiar entre Login y Registro */}
+      {/* Botones para navegar a Login y Registro */}
       <div>
         <button onClick={showLogin}>Login</button>
         <button onClick={showSignup}>Registro</button>
       </div>
 
-      {/* Mostrar el contenido basado en el estado 'view' */}
-      {view === 'login' && (
+      {/* Mostrar el estado de carga */}
+      {loading && <p>Loading...</p>}
+
+      {/* Mostrar el formulario de Login o Registro según el estado 'view' */}
+      {view === 'login' && !loading && (
         <div>
           <h2>Login</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <label>Usuario</label>
-              <input type="text" required />
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
             </div>
             <div>
               <label>Contraseña</label>
-              <input type="password" required />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
             <button type="submit">Iniciar sesión</button>
           </form>
         </div>
       )}
 
-      {view === 'signup' && (
+      {view === 'signup' && !loading && (
         <div>
           <h2>Registro</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <label>Usuario</label>
-              <input type="text" required />
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
             </div>
             <div>
               <label>Contraseña</label>
-              <input type="password" required />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
             <div>
               <label>Confirmar Contraseña</label>
-              <input type="password" required />
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
             </div>
             <button type="submit">Registrarse</button>
           </form>
