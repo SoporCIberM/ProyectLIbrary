@@ -58,14 +58,6 @@ cd backend  # o la carpeta correspondiente
 npm install   # o yarn install
 ```
 
-Configura las variables de entorno
-
-Crea un archivo .env en la raíz del directorio backend (y también en frontend si es necesario) y agrega las variables de configuración. Por ejemplo:
-
-```bash
-DB_URI=mysql://usuario:contraseña@localhost:3306/biblioteca
-PORT=3000
-```
 
 Ejecuta la aplicación
 
