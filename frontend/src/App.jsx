@@ -1,11 +1,12 @@
 
 import './App.css'
+import ResponsiveAppBar from './components/navigation'
 
 function App() {
 
   return (
     <>
-   <h1>Welcome to days</h1>
+    <ResponsiveAppBar/>
     </>
   );
 }
