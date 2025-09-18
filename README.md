@@ -1,31 +1,166 @@
 # Sistema de Gestión de Biblioteca
 
+
+
+
 ## Descripción del Proyecto
 
 > Este proyecto es una aplicación web diseñada para la gestión integral de una biblioteca. Permite a los usuarios buscar, visualizar y tomar prestados libros, mientras que los administradores tienen control total sobre el catálogo de libros y los usuarios. El objetivo es digitalizar y optimizar los procesos de una biblioteca tradicional, haciendo la gestión de recursos más eficiente y accesible.
+
+
+### Es una plataforma donde los usuarios pueden:
+
+ . Buscar libros por título, autor o categoría.
+
+  . Ver detalles de los libros.
+
+ . Registrarse, iniciar sesión y gestionar su propia biblioteca.
+
+ . Solicitar préstamos virtuales o descargar PDFs si aplica.
+
+ ### 🎯 Objetivos
+
+#### Objetivo General:
+
+>Desarrollar una aplicación web funcional de biblioteca online que permita a los usuarios interactuar con una colección digital de libros.
+
+Objetivos Específicos:
+
+- Implementar una interfaz amigable y accesible.
+
+- Gestionar usuarios mediante autenticación segura.
+
+- Crear una base de datos estructurada para libros y usuarios.
+
+- Validar el correcto funcionamiento con pruebas y retroalimentación.
+
+### 🌟 Características Principales
+
+- 🔍 Búsqueda avanzada de libros
+
+- 📝 Registro e inicio de sesión
+
+- 📂 Visualización y gestión de libros
+
+- 🛡️ Sistema de autenticación
+
+- 📈 Panel administrativo (opcional)
+
+### 👥 Roles del Equipo
+
+| Nombre del Colaborador | Rol en el Proyecto                         | Tareas Asignadas                                                                 |
+|------------------------|--------------------------------------------|----------------------------------------------------------------------------------|
+| Darwin            | Líder de Proyecto / Full Stack    | Organización general, diseño de interfaz, desarrollo de páginas principales     |
+| Chistofer             | Backend Developer                          | Gestión de base de datos, APIs, autenticación de usuarios                       |
+| Anthony             | Diseñador UX/UI y Frontend                         | Diseño visual de la app, experiencia de usuario, creación de wireframes         |
+| Mariano             | Tester / Frontend                     | Pruebas funcionales, control de calidad, redacción de documentación del sistema |
+
+
+### 🧪 Uso de Git y GitHub
+
+Durante el desarrollo del proyecto, aplicamos buenas prácticas de control de versiones:
+
+- Uso de ramas (`feature`, `fix`, `release`)
+- Commits descriptivos siguiendo convenciones
+- Pull requests para revisión de código entre el equipo
+- Issues para registrar tareas y errores
+
+### 📦 Estructura del Proyecto
+
+ProyectLibrary/
+│
+├── backend/                # Proyecto Spring Boot
+│   ├── src/main/java/
+│   └── src/main/resources/
+│
+├── frontend/               # Proyecto React
+│   ├── public/
+│   └── src/
+│
+├── README.md
+├── LICENSE
+
+---
+
+
+
 
 ## Requisitos Técnicos
 
 Para ejecutar este proyecto de manera local, asegúrate de tener instaladas las siguientes herramientas y versiones:
 
-- **Node.js**: v14 o superior
+- **Node.js**: v18 o superior
 - **npm**: v6 o superior (o Yarn si prefieres)
 - **MySQL**: v5.7 o superior
-- **Java**: v11 o superior
+- **Java**: v17 o superior
 - **Spring Boot**: v2.5.x o superior
 - **Git**: v2.x o superior
 
 Es recomendable tener un entorno de desarrollo con soporte para Java y Node.js, además de tener configurado un servidor MySQL local para la base de datos.
 
-## Tecnologías Utilizadas
+### 🧰 Tecnologías Utilizadas
+#### ⚙️ Backend (API REST):
 
-Las siguientes tecnologías han sido seleccionadas para el desarrollo del proyecto:
+Java 17
 
-- **Frontend**: React, Next.Js,Git, GitHub
-- **Backend**: Spring Boot, Spring Security
-- **Base de Datos**: MySQL
-- **Gestión de Paquetes**: npm, Yarn, Bun
-- **Estilos**: Tailwind CSS
+Spring Boot
+
+Spring Data JPA
+
+Spring Security (opcional)
+
+MySQL / PostgreSQL (según el motor de BD que usen)
+
+#### 🎨 Frontend:
+
+React.js
+
+HTML5 + CSS3
+
+React Router
+
+Axios
+
+#### 🛠️ Herramientas:
+
+Git y GitHub
+
+Visual Studio Code / IntelliJ
+
+Postman (para pruebas API)
+
+Figma / Canva (para diseño UI)
+
+
+
+### ✅ Requisitos del Proyecto
+#### 🔹 Requisitos Funcionales
+
+Los requisitos funcionales definen qué hace el sistema. Son acciones que el usuario puede realizar o funcionalidades que el sistema debe ofrecer.
+
+
+
+| ID   | Requisito Funcional                | Descripción                                                                     |
+| ---- | ---------------------------------- | ------------------------------------------------------------------------------- |
+| RF01 | Registro de usuarios               | El sistema debe permitir a los usuarios registrarse con correo y contraseña.    |
+| RF02 | Inicio de sesión                   | Los usuarios podrán iniciar sesión en la plataforma con sus credenciales.       |
+| RF03 | Búsqueda de libros                 | Los usuarios podrán buscar libros por título, autor o categoría.                |
+| RF04 | Visualización de libros            | Se mostrará información detallada del libro (título, autor, descripción, etc.). |
+| RF05 | Gestión de biblioteca personal     | Cada usuario podrá guardar libros en su lista personal de lectura.              |
+| RF06 | Panel de administración (opcional) | El administrador podrá añadir, editar o eliminar libros del catálogo.           |
+
+#### 🔸 Requisitos No Funcionales
+
+Los requisitos no funcionales definen cómo debe comportarse el sistema. No son acciones directas del usuario, pero afectan la calidad del software.
+| ID    | Requisito No Funcional | Descripción                                                                      |
+| ----- | ---------------------- | -------------------------------------------------------------------------------- |
+| RNF01 | Seguridad              | Las contraseñas deben estar cifradas y los datos protegidos.                     |
+| RNF02 | Rendimiento            | El sistema debe responder a las acciones del usuario en menos de 2 segundos.     |
+| RNF03 | Escalabilidad          | La app debe poder manejar un creciente número de usuarios y libros.              |
+| RNF04 | Usabilidad             | La interfaz debe ser intuitiva, clara y accesible para todos los usuarios.       |
+| RNF05 | Mantenibilidad         | El código debe estar organizado para facilitar futuras mejoras o correcciones.   |
+| RNF06 | Disponibilidad         | El sistema debe estar disponible el 95% del tiempo, salvo durante mantenimiento. |
+
 
 ## Instalación
 
@@ -66,7 +201,7 @@ _Backend:_
 
 ```bash
 cd backend
-npm start  # o npm run dev
+./mvnw spring-boot:run
 ```
 
 _Frontend:_
@@ -101,21 +236,26 @@ npm start  # o npm run dev
 
 **_Visualización de su historial de préstamos._**
 
+
+
+
 ### Flujo de Trabajo con Git
 
 **_Este proyecto utiliza un flujo de trabajo de ramificación basado en Git Flow, con las siguientes ramas principales:_**
 
-**_main:_** Contiene el código listo para ser desplegado en producción.
+| Rama                   | Propósito                                                                                                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`main`**             | Contiene el código estable y listo para producción. Todo lo que se fusiona aquí debe estar completamente probado.                                                                    |
+| **`release`**          | Rama principal de desarrollo. Aquí se integran las funcionalidades completas desde las ramas `feature/` antes de pasar a producción.                                                 |
+| **`feature/`** | Ramas creadas para desarrollar nuevas funcionalidades. Se crean a partir de `release` y, al completarse, se fusionan nuevamente en `release`. <br>*Ejemplo: `feature/login-usuario`* |
+| **`fix/`**     | Ramas utilizadas para solucionar errores o bugs. También parten de `release` y se fusionan de regreso una vez solucionado el problema. <br>*Ejemplo: `fix/busqueda-error`*           |
 
-**_develop:_** Rama principal de desarrollo, donde se integran las nuevas funcionalidades.
-
-**_feature/:_** Ramas específicas para el desarrollo de nuevas funcionalidades o correcciones de errores.
 
 ### Pasos a seguir para el desarrollo
 
-**_Actualiza tu rama local develop:_**
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+
+
 
 ## Trabajo Colaborativo
 
@@ -139,11 +279,23 @@ Aquí se muestra la estructura de ramas inicial:
 ![Rama fix](./imgs/fix.png)
 ![Rama release](./imgs/release.png)
 
-#### 3. Protección de Ramas
+#### 3. Conflictos
 
-Para garantizar la estabilidad de nuestras ramas main, feature, fix y release, implementé reglas de protección que requieren revisiones de código y pases de CI/CD antes de fusionar.
-Captura de pantalla de las reglas de protección de rama:
-`
+A lo largo del hacer merge de las ramas de mis colaboradores se presentaron algunos conflictos
+ya que algunos de ellos habian modificado en el mismo archivo.
+
+![Rama conflic](./imgs/imgconfilict.png)
+![Rama conflic](./imgs/imgma.png)
+
+### 4. Merge
+
+![Rama merge](./imgs/da.png)
+![Rama merge](./imgs/ac.png)
+
+## 5. Blame
+
+![Rama blame](./imgs/blame.png)
+
 
 #### 4. Gestión del Flujo de Trabajo
 
@@ -175,7 +327,7 @@ Evidencia de Contribución:
 
 ⚙️ Características
 
-    [Lista de características principales de la biblioteca online]
+    Lista de características principales de la biblioteca online:
 
         Búsqueda y filtrado de libros.
 
@@ -184,3 +336,21 @@ Evidencia de Contribución:
         Sistema de préstamos y devoluciones.
 
         Panel de administración.
+
+
+| Funcionalidad                | Estado           |
+| ---------------------------- | ---------------- |
+| Login/Registro de usuario    | ✅ Completado     |
+| Listado de libros            | 🔄 Completado     |
+| Búsqueda por categoría/autor | 🔄 En desarrollo |
+| Panel de administración      | ⏳ Pendiente      |
+| Pruebas con Postman          |  ✅ Completado     |
+| Creacion de Entidades       |  ✅ Completado     |
+
+
+
+### 📌 Conclusiones
+
+En este proyecto aprendimos a trabajar en equipo usando control de versiones, a integrar frontend y backend, y a construir una solución digital útil. El trabajo colaborativo y la división de roles fue clave para cumplir los objetivos.
+
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
