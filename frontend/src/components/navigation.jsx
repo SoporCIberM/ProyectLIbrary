@@ -1,182 +1,224 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import {
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Avatar,
+  Typography,
+  Divider,
+  IconButton,
+  Tooltip,
+  Menu,
+  MenuItem,
+  AppBar,
+  Toolbar,
+} from "@mui/material";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import {
+  Menu as MenuIcon,
+  LocalLibrary as LocalLibraryIcon,
+  MenuBook as MenuBookIcon,
+  MonetizationOn as MonetizationOnIcon,
+  Article as ArticleIcon,
+  Logout as LogoutIcon,
+  AccountCircle as AccountCircleIcon,
+  Dashboard as DashboardIcon,
+} from "@mui/icons-material";
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+import { Link, Routes, Route } from "react-router-dom";
+
+const drawerWidth = 240;
+
+const pages = [
+  { text: "Inicio", icon: <MenuBookIcon />, path: "/inicio" },
+  { text: "Catálogo", icon: <MonetizationOnIcon />, path: "/catalogo" },
+  { text: "Mi Cuenta", icon: <ArticleIcon />, path: "/myacount" },
+];
+
+const settings = [
+  { text: "Profile", icon: <AccountCircleIcon /> },
+  { text: "Account", icon: <DashboardIcon /> },
+  { text: "Dashboard", icon: <DashboardIcon /> },
+  { text: "Logout", icon: <LogoutIcon /> },
+];
+
+export default function ResponsiveSidebar() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
+  const handleCloseUserMenu = () => setAnchorElUser(null);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  // Contenido del sidebar
+  const drawerContent = (
+    <Box
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        bgcolor: "#1976d2",
+        color: "white",
+      }}
+    >
+      <Box>
+        <Box
+          sx={{
+            p: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1,
+          }}
+        >
+          <LocalLibraryIcon sx={{ fontSize: 32 }} />
+          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+            Biblioteca
+          </Typography>
+        </Box>
+        <Divider sx={{ bgcolor: "rgba(255,255,255,0.3)" }} />
+        <List>
+          {pages.map((page) => (
+            <ListItem key={page.text} disablePadding>
+              <ListItemButton
+                component={Link}
+                to={page.path}
+                sx={{
+                  color: "white",
+                  "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
+                }}
+                onClick={() => setMobileOpen(false)} // Cierra el menú en móviles al navegar
+              >
+                <ListItemIcon sx={{ color: "white" }}>{page.icon}</ListItemIcon>
+                <ListItemText primary={page.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+      {/* Usuario */}
+      <Box sx={{ textAlign: "center", mb: 2 }}>
+        <Tooltip title="Abrir menú de usuario">
+          <IconButton onClick={handleOpenUserMenu}>
+            <Avatar alt="Usuario" src="/static/images/avatar/2.jpg" />
+          </IconButton>
+        </Tooltip>
+
+        <Menu
+          anchorEl={anchorElUser}
+          open={Boolean(anchorElUser)}
+          onClose={handleCloseUserMenu}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          transformOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          {settings.map((setting) => (
+            <MenuItem key={setting.text} onClick={handleCloseUserMenu}>
+              <ListItemIcon>{setting.icon}</ListItemIcon>
+              <ListItemText>{setting.text}</ListItemText>
+            </MenuItem>
+          ))}
+        </Menu>
+      </Box>
+    </Box>
+  );
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <LocalLibraryIcon
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-          />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+    <Box sx={{ display: "flex", minHeight: "100vh" }}>
+      {/* Barra superior para móviles */}
+      <AppBar
+        position="fixed"
+        sx={{
+          display: { sm: "none" },
+          backgroundColor: "#1976d2",
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2 }}
           >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
             Biblioteca
           </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <LocalLibraryIcon
-            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-          />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Biblioteca
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => {
-                  handleCloseNavMenu();
-                  if (page === "Products") navigate("/products");
-                  if (page === "Pricing") navigate("/pricing");
-                  if (page === "Blog") navigate("/blog");
-                }}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={() => {
-                    handleCloseUserMenu();
-                    if (setting === "Profile") navigate("/profile");
-                    if (setting === "Account") navigate("/profile");
-                    if (setting === "Dashboard") navigate("/profile");
-                    if (setting === "Logout") navigate("/LoginRegister");
-                  }}
-                >
-                  <Typography sx={{ textAlign: "center" }}>
-                    {setting}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
         </Toolbar>
-      </Container>
-    </AppBar>
+      </AppBar>
+
+      {/* Drawer permanente (escritorio) */}
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: "none", sm: "block" },
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+        open
+      >
+        {drawerContent}
+      </Drawer>
+
+      {/* Drawer temporal (móviles) */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+
+      {/* Contenido principal */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 4,
+          bgcolor: "#f5f5f5",
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          mt: { xs: 8, sm: 0 }, // deja espacio para AppBar en móviles
+        }}
+      >
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Typography variant="h4" sx={{ fontWeight: 600 }}>
+                Bienvenido a la Biblioteca
+              </Typography>
+            }
+          />
+          <Route
+            path="/inicio"
+            element={<Typography variant="h4">Sección de Inicio</Typography>}
+          />
+          <Route
+            path="/catalogo"
+            element={<Typography variant="h4">Sección de Catálogo</Typography>}
+          />
+          <Route
+            path="/myacount"
+            element={<Typography variant="h4">Sección Mi Cuenta</Typography>}
+          />
+        </Routes>
+      </Box>
+    </Box>
   );
 }
-export default ResponsiveAppBar;
